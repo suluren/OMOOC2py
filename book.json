@@ -3,11 +3,11 @@
     "description": "OMOOC.py tutorial for teching",
     "author": "OMOOC-support <omooc-support@googlegroups.com>",
 
-    "plugins": [
-        "disqus"
-    ],
-    "pluginsConfig": {
+    "plugins": ["disqus"],
+       "pluginsConfig": {
+     "disqus": {
         "shortName": "suluren"
+     }
     }
 }
 
