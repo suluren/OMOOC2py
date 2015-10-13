@@ -3,6 +3,7 @@
   - [github](0MOOC/github.md)
   - [DISQUS](0MOOC/DISQUS.md) 
   - [(￣空￣)](0MOOC/gitstory.md)
+  - [QAQ](0MOOC/Q.md)
 * [基础旋进]()
 * [迭代作品]()
 * [人生首秀]()
