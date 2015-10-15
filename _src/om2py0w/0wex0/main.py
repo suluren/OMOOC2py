@@ -1,42 +1,47 @@
 # -*- coding: UTF-8 -*-
 # Quick Python Script Explanation for programmers
-# 给程序员的超快py脚本解说
-import os
+# 主食种类与食量建议，依据GL与GI值  
+
+food_name = ['苹果', '大米', '燕麦']
+GI_value = [36, 87, 55]
+GI_list = zip(food_name, GI_value)
+Dict = dict( (name,value) for name,value in GI_list)
 
 def main():
-	print 'Hello world!'
+	print '你好，我是小小A，将为你提供主食种类和食量建议，帮助你控制血糖~'
+	print "推荐以下食材喔："
 	
-	print "this is Alice's greeting."
-	print 'This is Bob\'s greeting.'
+	list()
+	opt = raw_input('\n请输入你选择的主食：')
 	
-	foo(5, 10)
+	check(opt)
 	
-	print '=' * 10
-	print 'Current working directory is '+os.getcwd()
+	quan = raw_input("\n次饭啦~小小A也饿了呢，你打算吃多少呢？以克计量哦~  ")
 	
-	counter = 0
-	counter += 1
+	GI = Dict.get(opt)
+	gl = GI * int(quan) / 100
 	
-	food = ('苹果', '杏子', '李子', '梨')
-	for i in food:
-		print '俺就爱整只'+i
-		
-	print '数到10'
-	for i in range(10):
+	advice(gl)
+	
+def list():
+	for i in food_name:
 		print i,
 		
-def foo(param1, secondParam):
-	res = param1+secondParam
-	print '%s 加 %s 等于 %s'%(param1, secondParam, res)
-	if res < 50:
-		print '这个'
-	elif (res>=50) and ((param1==42) or (secondParam==24)):
-		print '那个'
+def check(opts):	
+	if opts not in food_name:
+		print "\n小小A伤脑筋呢~试试这些？" 
 	else:
-		print '嗯...'
-	return res # 这是单行注释
-	'''这是多
-行注释......'''
-
+		return 
+		
+def advice(GL):
+	if GL >= 20:
+		print "噢哦……这可不是个好选择，再试试别的？"
+	elif GL in range(10, 19):
+		print "当主餐刚刚好哦，运动以后吃也不错~"
+	elif GL in range(1, 9):
+		print "当零食刚刚好哦，棒棒哒~"
+	else:
+		print "西北风吹呀吹~啊吹呀吹~~"
+		
 if __name__=='__main__':
 	main()
