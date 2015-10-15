@@ -18,7 +18,8 @@
         }
 	    }
 		}
-  - shortName 需要登陆 disqus 点击 Add Disqus to Site 设置（有Admin点Admin）再点击Engage 就可以编辑了；把 `.disqus.com` 前面那自己输入的部分填入 `"example"`就行；  
+  - shortName 需要登陆 disqus 点击 Add Disqus to Site 设置（有Admin点Admin）再点击Engage 就可以编辑了；把 `.disqus.com` 前面那自己输入的部分填入 `"example"`就行；
+  - 嗯……漏了`admin/settings/advanced/ `加`gitbook.com ``gitbook.io` 
   - 有个坑，看岔了 DAMA 给的模板 book.json（都是四行），以为 code 没问题，转而去找 disqus 设置的问题，找不到回来再看 code 才发现，真是活该没检查T.T
 
 
