@@ -19,16 +19,15 @@ def writing():
     line = "test"
     
     while len(line) != 0:  
-        line = raw_input("> ")  
+        line = raw_input(">")  
         diary.append(line + '\n')
 
-    localtime.append(time.strftime("%Y-%m-%d %X")) 
+    localtime.append(time.strftime("%F , *wd%w , %X") + '\n') 
     export = open('datebook.txt', 'a+')
     export.writelines(diary + localtime)
     export.close()
     
 def reading():
-    diary = []
     readbook = open('datebook.txt')
     print readbook.read()
     readbook.close()
