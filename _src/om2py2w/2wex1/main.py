@@ -1,8 +1,11 @@
 # coding=utf-8
+# 
+
 from Tkinter import *
 import ScrolledText as ST 
 from os.path import exists
 from random import choice
+from DateBook import init_file
 
 class App(Frame):
 
@@ -15,7 +18,7 @@ class App(Frame):
         text = self.e.get()
         self.e.delete(0, END)
         self.t.insert(END, '\n'+text.encode('utf-8'))
-        f = open(filename, 'a+')
+        f = open(filename, 'a')
         f.write('\n'+text.encode('utf-8'))
         f.close()
 
@@ -47,7 +50,10 @@ def main():
 if __name__ == '__main__':
     emoji = ['ε٩(๑> ₃ <)۶з', '(¦3[▓▓]', 'ξ( ✿＞◡❛)', '(´ΘωΘ`)']
     filename =  "daily.log"
-    if not exists(filename):
-        f = open(filename, 'w')
-        f.close()
+    # 测试从自己的代码import
+    init_file(filename)
     main()
+    #if not exists(filename):
+        #f = open(filename, 'w')
+        #f.close()
+
