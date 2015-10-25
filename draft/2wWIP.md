@@ -34,4 +34,17 @@ from Tkinter import *
   + 看到有人和我一样遇到此坑, 决定也去 pyenv 下
 - pyenv 无法下载 python ,重装 pyenv 后又可以了(并没有改变安装方法)
 - 偏离主要问题如此长时间, 回头想我是不是应该先看看如何 get() 中文= =
+- 发现类总是用不好, 顺着写吧(面向过程), 总觉得蹩手, 所以多用函数, 用类总忘了self... 写完作业再多练习练习
+
+ ```
+f.write('\n' + text) 
+UnicodeEncodeError: 'ascii' codec can't encode characters in position 2-5: ordinal not in range(128)
+```  
+
+解决方法: 在 text 后加上.encode('utf-8'), 更多方法参考[这里](http://www.v2ex.com/t/163786)
+- 搜索 text 发现 bind , 可以不用按钮了, 回车(事件参数)就能调用函数, 嗯, 既然cli 版日记使用 enter 完成一次输入, 我应该先搜搜 enter 才对..
+
+- 接下来是, mainloop 起来就看到过往记录..
+
+
   

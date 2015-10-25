@@ -1,7 +1,5 @@
 # coding=utf-8
-
 from Tkinter import *
-
 
 class App(Frame):
 
@@ -10,24 +8,26 @@ class App(Frame):
         self.pack()
         self.createWidgets()
 
-    def callback(self):
-        f = open("daily.log", 'a+')
+    def callback(self, event):
         text = self.e.get()
-        print text
         self.e.delete(0, END)
-        f.write('\n' + text.encode('utf-8'))
+        self.t.insert(END, '\n'+text.encode('utf-8'))
+        f = open("daily.log", 'a+')
+        f.write('\n'+text.encode('utf-8'))
         f.close()
 
     def createWidgets(self):
         
         self.e = Entry(self, width=50)
         self.e.pack()
-
-        self.b = Button(self, text="保存", command=self.callback)
-        self.b.pack()
+        self.e.bind('<Key-Return>', self.callback)
 
         self.t = Text(self)
-        self.t.pack() 
+        self.t.pack()
+        f = open('daily.log').readlines()
+        for i in f:
+            # 1.0 文件内容倒着呈现 
+            self.t.insert(END, i) 
 
         self.q = Button(self, text="退出", command=self.quit)
         self.q.pack()      
