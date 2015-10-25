@@ -45,6 +45,7 @@ UnicodeEncodeError: 'ascii' codec can't encode characters in position 2-5: ordin
 - 搜索 text 发现 bind , 可以不用按钮了, 回车(事件参数)就能调用函数, 嗯, 既然cli 版日记使用 enter 完成一次输入, 我应该先搜搜 enter 才对..
 
 - 接下来是, mainloop 起来就看到过往记录..
+- 可以, 接下来把 filename 攒到总调下
 
 
   
