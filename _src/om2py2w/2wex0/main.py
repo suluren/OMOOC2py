@@ -1,28 +1,42 @@
 # coding=utf-8
+
 from Tkinter import *
-# from wr import writing
 
-class App:
 
-    def __init__(self, master):
+class App(Frame):
 
-        frame = Frame(master)
-        frame.pack()
+    def __init__(self, master=None):
+        Frame.__init__(self, master)
+        self.pack()
+        self.createWidgets()
 
-        text = Text(frame)
-        text.pack(side=LEFT) 
+    def callback(self):
+        f = open("daily.log", 'a+')
+        text = self.e.get()
+        print text
+        self.e.delete(0, END)
+        f.write('\n' + text.encode('utf-8'))
+        f.close()
 
-        q = Button(frame, text="退出", command=frame.quit)
-        q.pack(side=BOTTOM)
+    def createWidgets(self):
+        
+        self.e = Entry(self, width=50)
+        self.e.pack()
 
-        w = Button(frame, text="保存")
-        w.pack(side=TOP)
+        self.b = Button(self, text="保存", command=self.callback)
+        self.b.pack()
 
-        r = Button(frame, text="查看")
-        r.pack(side=TOP)
+        self.t = Text(self)
+        self.t.pack() 
 
-root = Tk()
-root.title("日记")
-MyDailyTK = App(root)
+        self.q = Button(self, text="退出", command=self.quit)
+        self.q.pack()      
 
-root.mainloop()
+def main():
+    root = Tk()
+    root.title("每日笔记")
+    MyDailyTK = App(master=root)
+    root.mainloop()
+
+if __name__ == '__main__':
+    main()
