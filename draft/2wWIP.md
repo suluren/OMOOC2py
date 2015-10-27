@@ -24,7 +24,7 @@ from Tkinter import *
   + button 创建两个按钮部件, 一个绑定保存写入文件命令(函式), 另一个绑定读取日记文件命令
   + pack 使部件在界面中可见
   + 打个比方, 类是神笔马良画在卷轴上的龙, 什么时候想要点个睛, 就从墙上飞出来了;
-  + (不过龙飞出来之后, 卷轴上那只原始龙不会消失, 它具有所有龙最基本的属性和能力;)
+  + (不过龙飞出来之后, 卷轴上那只原始龙不会消失, 它具有所有龙最基本的属性和能力;非常便利, 看忍者能用它混得不错就知道了)
 
 - 界面是什么样  
   + 框架: `frame = Frame(master)`
@@ -41,11 +41,60 @@ f.write('\n' + text)
 UnicodeEncodeError: 'ascii' codec can't encode characters in position 2-5: ordinal not in range(128)
 ```  
 
-解决方法: 在 text 后加上.encode('utf-8'), 更多方法参考[这里](http://www.v2ex.com/t/163786)
+解决方法: 在 text 后加上.encode('utf-8'), 更多方法参考[这里](http://www.v2ex.com/t/163786)  
+
 - 搜索 text 发现 bind , 可以不用按钮了, 回车(事件参数)就能调用函数, 嗯, 既然cli 版日记使用 enter 完成一次输入, 我应该先搜搜 enter 才对..
 
 - 接下来是, mainloop 起来就看到过往记录..
 - 可以, 接下来把 filename 攒到总调下
 
+---
+http://www.tkdocs.com/tutorial/install.html
 
-  
+看看 IDE tk 版本 
+
+```  
+>>> import Tkinter
+>>> Tkinter._test()
+>>> Tkinter.Tcl().eval('info patchlevel')
+'8.5.9'
+>>>
+```
+而在 wish里 就是新版...
+
+```
+$wish
+% info patchlevel
+8.5.18
+%
+```
+果然
+
+```
+$wish
+% /usr/bin/python2.7
+>>> import Tkinter
+>>> Tkinter.Tcl().eval('info patchlevel')
+'8.5.9'
+```
+```
+$ pwd
+/usr/local/bin
+$ ls -R
+brew		tclsh		tclsh8.6	teacup		wish8.5
+tclselect	tclsh8.5	tclvfse	 wish   wish8.6
+```
+
+- 不在同一目录下不能 import? 我该如何
+  + python 如何 import module?
+- 解决?
+  + pip 安装?
+  + or
+  + 
+   ```
+    import sys     
+    sys.path.append(path)?
+    ```
+     
+  + pyenv install ?
+

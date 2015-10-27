@@ -1,11 +1,12 @@
 # coding=utf-8
-# 
+# author : suluren
 
 from Tkinter import *
+from ttk import *
 import ScrolledText as ST 
 from os.path import exists
 from random import choice
-from DateBook import init_file
+# from DateBook import init_file
 
 class App(Frame):
 
@@ -23,16 +24,20 @@ class App(Frame):
         f.close()
 
     def createWidgets(self):
-        v = StringVar()
-        self.l = Label(self, textvariable=v)
-        v.set(choice(emoji))
+        
+        #v = StringVar()
+        self.l = Label(self, text=choice(emoji))
+        #v.set(choice(emoji))
         self.l.pack()
         
-        self.e = Entry(self, width=50)
+        c = StringVar()
+        self.e = Entry(self, textvariable=c, width=50)
+        #:ttk 下不能显示
+        c.set("请在这里输入")
         self.e.pack()
         self.e.bind('<Key-Return>', self.callback)
 
-        self.t = ST.ScrolledText(self)
+        self.t = ST.ScrolledText(self, width=66)
         self.t.pack()
         f = open(filename).readlines()
         for i in f:
@@ -49,11 +54,9 @@ def main():
 
 if __name__ == '__main__':
     emoji = ['ε٩(๑> ₃ <)۶з', '(¦3[▓▓]', 'ξ( ✿＞◡❛)', '(´ΘωΘ`)']
-    filename =  "daily.log"
-    # 测试从自己的代码import
-    init_file(filename)
+    filename = "daily.txt"
+    #~ init_file(filename)
+    if not exists(filename):
+        f = open(filename, 'w')
+        f.close()
     main()
-    #if not exists(filename):
-        #f = open(filename, 'w')
-        #f.close()
-

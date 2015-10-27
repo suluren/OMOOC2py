@@ -3,11 +3,11 @@ from os.path import exists
 import time
 
 def main():
-    init_file()
-    reading()
-    writing()    
+    init_file(filename)
+    reading(filename)
+    writing(filename)    
 
-def writing():
+def writing(filename):
     diary = []
     localtime = []
     line = "~"
@@ -17,6 +17,8 @@ def writing():
         if line in help:
             print "(๑•́ ₃ •̀๑)~需要帮助? 很简单喔~\
                   输入完一行回车, 日记就保存了, 下次进来就看到了~" 
+        elif line in QUIT:
+            exit(0)
         else: 
             diary.append(line + '\n')
 
@@ -25,7 +27,7 @@ def writing():
     export.writelines(diary + localtime)
     export.close()
     
-def reading():
+def reading(filename):
     readbook = open(filename).readlines()
     for i in readbook:
         print i
@@ -39,4 +41,5 @@ def init_file(filename):
 if __name__=='__main__':
     filename = "datebook.txt"
     help = ['help', 'h', '?']
+    QUIT = ['quit', 'q', 'Q']
     main()
