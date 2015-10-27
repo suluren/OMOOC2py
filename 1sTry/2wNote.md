@@ -137,13 +137,8 @@ UnicodeEncodeError: 'ascii' codec can't encode characters in position 2-5: ordin
   + 确定一个对象(或者说一个关键词), 去找你要的
   + 别练快速眼动, 挣扎一下, 赶紧自言自语镇定一下
   + 这样的问题类似'怎么明智适应大换风格的老朋友?'? 
-
-- 这次心理过程基本是: 
-  + 不知道是什么, 要什么; 由例子知道要什么了..
-  + ..又不知道: 长什么样, 在哪里获得, 以及我的假设会不会和上次一样又是个影子,,,恐惧;
-  + ..(很多时候, 对于计算机术语或者黑话, 那是查了字典, 也不知所云, 更别提为什么了)..
-  + 堵住, 逃避主要矛盾, 耗费时间
-  + 
+  
+错误反反复复, 换一个情景就不能生活自理了? 好好思考你的来路, *笨方法*
   
 > **3+1**   
 > todo: 透彻把玩(像小孩子玩玩具一样)每个文档的介绍例子, 一个或两个, 会用就够  
@@ -153,7 +148,7 @@ UnicodeEncodeError: 'ascii' codec can't encode characters in position 2-5: ordin
 
 ---
 
-keep clam  
-and  
-review  
+keep clam 散个步  
+and  回来  
+review  思考  
 ...

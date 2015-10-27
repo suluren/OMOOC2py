@@ -5,6 +5,7 @@
   - [(￣空￣)](0MOOC/gitstory.md)
   - [QAQ](0MOOC/Q.md)
 * [基础旋进]()
+  - [2w笔记](1sTry/2wNote.md)
 * [迭代作品]()
 * [人生首秀]()
 * [代码 (_src)]()
