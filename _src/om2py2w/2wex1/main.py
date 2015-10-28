@@ -3,7 +3,7 @@
 
 from Tkinter import *
 from ttk import *
-import ScrolledText as ST 
+#import ScrolledText as ST 
 from os.path import exists
 from random import choice
 # from DateBook import init_file
@@ -30,18 +30,20 @@ class App(Frame):
         #v.set(choice(emoji))
         self.l.pack()
         
-        c = StringVar()
-        self.e = Entry(self, textvariable=c, width=50)
-        #:ttk 下不能显示
-        c.set("请在这里输入")
+        self.c = StringVar()
+        self.c.set("唷~~心情如何, 准备写点什么?(*ˇωˇ*人)在这里记录下吧...")
+        self.e = Entry(self, textvariable=self.c, width=50)
         self.e.pack()
         self.e.bind('<Key-Return>', self.callback)
 
-        self.t = ST.ScrolledText(self, width=66)
+        self.sb = Scrollbar(self, orient=VERTICAL)
+        self.t = Text(self, width=66, yscrollcommand=self.sb.set)
+        self.sb.config(command=self.t.yview)
+        self.sb.pack(side=RIGHT , fill=Y)
         self.t.pack()
         f = open(filename).readlines()
         for i in f:
-            self.t.insert(END, i) 
+            self.t.insert(END, i)  
 
         self.q = Button(self, text="退出", command=self.quit)
         self.q.pack()      
@@ -49,12 +51,13 @@ class App(Frame):
 def main():
     root = Tk()
     root.title("~每日笔记~")
+    #root.geometry("540x480")
     MyDailyTK = App(master=root)
     root.mainloop()
 
 if __name__ == '__main__':
     emoji = ['ε٩(๑> ₃ <)۶з', '(¦3[▓▓]', 'ξ( ✿＞◡❛)', '(´ΘωΘ`)']
-    filename = "daily.txt"
+    filename = "daily.log"
     #~ init_file(filename)
     if not exists(filename):
         f = open(filename, 'w')
