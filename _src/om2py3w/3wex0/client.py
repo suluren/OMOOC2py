@@ -14,7 +14,6 @@ sc = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 #: 连接服务器
 sc.connect((HOST, PORT))
 sc.send('r')
-#sc.recv(10240)
 print sc.recv(10240)
 
 while True:  

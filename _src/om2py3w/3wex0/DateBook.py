@@ -25,17 +25,19 @@ def save(filename, line):
     
 def reading(filename):
     with open(filename) as readbook: 
-        for i in readbook:
-            print i
-'''  
+        #for i in readbook:
+            #print i
+        return readbook.read()
+
+ 
 def init_file(filename):
     if not exists(filename):
         f = open(filename, 'w')
         f.close()
-'''
+
 
 if __name__=='__main__':
     Filename = "daily.log"
-    #init_file(Filename)
+    init_file(Filename)
     reading(Filename)   
     main()
