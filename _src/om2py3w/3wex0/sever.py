@@ -16,14 +16,19 @@ print '绑定主机与端口'
 
 while True:
 	data, remote_addr = ss.recvfrom(10240)
-	if data in ['read', 'r']:
-		with open('daily.log') as readbook:
-			diary = readbook.read()
-	        ss.sendto(diary, remote_addr)
+	#: 循环中无法执行以下
+	print type(data)
+	print data
+	if str(data) in ['read', 'r']:
+		diary = DateBook.reading(Filename)
+		ss.sendto(diary, remote_addr)
 	else:
-		print type(remote_addr)
 		print "来自{}的数据:{}".format(remote_addr, data)
 		DateBook.save('daily.log', data)
 	#print '连接' + addr[0] + ':' + str(addr[1])
 
 ss.close()
+
+
+if __name__=='__main__':
+    Filename = "daily.log"

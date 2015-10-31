@@ -3,7 +3,6 @@
 
 import socket
 
-
 HOST, PORT = 'localhost', 4242
 #data = " ".join(sys.argv[1:])
 
@@ -21,7 +20,8 @@ while True:
         break
     elif not line:
         continue
+    elif line in ['r', 'read']:
+        print '日记记录:\n', sc.recv(10240)
     else:
         sc.sendto(line, (HOST, PORT))
 
-#print '日记记录:', sc.recv(10240)
