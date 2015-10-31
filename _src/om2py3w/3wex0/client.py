@@ -5,23 +5,27 @@ import socket
 
 HOST, PORT = 'localhost', 4242
 #data = " ".join(sys.argv[1:])
+help = '''\
+          h|help|? : 打印帮助
+          q|quit|exit : 退出每日笔记
+       '''
 
 sc = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+#: 连接服务器
+sc.connect((HOST, PORT))
+sc.send('r')
+#sc.recv(10240)
+print sc.recv(10240)
 
 while True:  
     line = raw_input(">")
     if line in ['help', 'h', '?']:
-        print '''\
-                  (๑•́ ₃ •̀๑)~需要帮助? 很简单喔~
-                  输入完一行回车, 日记就保存了, 下次进来就看到了~
-                  '''
+        print help
     elif line in ['quit', 'q', 'exit']:
         print '嗯!(¦3[▓▓].....'
         break
     elif not line:
         continue
-    elif line in ['r', 'read']:
-        print '日记记录:\n', sc.recv(10240)
     else:
-        sc.sendto(line, (HOST, PORT))
-
+        sc.send(line)
+        

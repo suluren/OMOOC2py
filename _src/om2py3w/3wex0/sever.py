@@ -13,22 +13,17 @@ print '服务端创建'
 #:socket.gethostname()可访问外界, localhost 限同台机; 第二个参数建议4位
 ss.bind((HOST, PORT))
 print '绑定主机与端口'
+data, remote_addr = ss.recvfrom(1024)
+print "收到请求"
+if data == 'r':
+	#diary = DateBook.reading('daily.log')
+	ss.sendto("收到", remote_addr)
+	print "发送完毕"
 
 while True:
+	print "等待...."
 	data, remote_addr = ss.recvfrom(10240)
-	#: 循环中无法执行以下
-	print type(data)
-	print data
-	if str(data) in ['read', 'r']:
-		diary = DateBook.reading(Filename)
-		ss.sendto(diary, remote_addr)
-	else:
-		print "来自{}的数据:{}".format(remote_addr, data)
-		DateBook.save('daily.log', data)
-	#print '连接' + addr[0] + ':' + str(addr[1])
+	print "来自{}的数据:{}".format(remote_addr, data)
+	DateBook.save('daily.log', data)
 
 ss.close()
-
-
-if __name__=='__main__':
-    Filename = "daily.log"
