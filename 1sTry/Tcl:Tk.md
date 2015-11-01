@@ -111,7 +111,7 @@ _tkinter.so:
 - pyenv 可以使你在任意目录下切换任意版本
 - 重要的是绕过 Apple Tk 的 bug, 这是你乐意的方式吧
 
-- 安装姿势 (看到 [installer](https://github.com/yyuu/pyenv-installer) 的安装卸载都很明确就选了这个...这个安装不用编辑 .bash/profile), 首次接触 profile 文件....
+- 安装姿势 (另有[installer](https://github.com/yyuu/pyenv-installer) 这个安装同时也安装了pyenv-virtualenv, 另不用编辑 .bash/profile, 都可以, 还有很多别的方式), 首次接触 profile 文件....
 
 ```
 $git clone https://github.com/yyuu/pyenv.git ~/.pyenv
@@ -121,7 +121,7 @@ export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$HOME/.pyenv/bin:$PATH"
 export PATH="$HOME/.pyenv/shims:$PATH"
 eval "$(pyenv init -)"
-# :pyenv github给的, 也可以
+# :pyenv github给的, 还不知道 shims 是啥, 选这个吧
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
@@ -132,8 +132,13 @@ eval "$(pyenv init -)"
   + `pyenv install 版本` 下载
   + `pyenv rehash` 每次下载后执行
   + `pyenv local 版本` 设定当前路径下使用哪版; `pyenv local --unset` 取消
-  + `pyenv version(s)` 显示当下版本, 加 s 为列出所有版本, *标示当前
+  + `pyenv version(s)` 显示当下版本, 加 s 为列出所有版本, * 标示当前所用
   + ...
+- 另外也顺便安装下 pyenv-pip-rehash
 
-  
+```
+git clone https://github.com/yyuu/pyenv-pip-rehash.git ~/.pyenv/plugins/pyenv-pip-rehash
+```
+每次 pip 安装包后会自动刷新吧..( 现在大概这么理解 rehash)
+
 ### ...

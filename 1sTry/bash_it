@@ -1,0 +1,9 @@
+### bash_it
+
+- git clone
+
+默认 bobby, 也可以自己修改
+
+```
+$vim .bash_it/themes/bobby/bobby.theme.bash
+```
