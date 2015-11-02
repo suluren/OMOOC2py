@@ -3,6 +3,7 @@ from os.path import exists
 import time
 
 def main():
+    lines = []
     while True:  
         l = raw_input(">")
         if l in ['help', 'h', '?']:
@@ -12,8 +13,9 @@ def main():
                   '''
         elif l in ['quit', 'q', 'exit']:
             break
-        else: 
-            save(Filename, l)
+        else:
+            lines.append('\n' + l)
+    save(Filename, line)
 
 
 def save(filename, line):
@@ -39,5 +41,5 @@ def init_file(filename):
 if __name__=='__main__':
     Filename = "daily.log"
     init_file(Filename)
-    reading(Filename)   
+    print reading(Filename)   
     main()

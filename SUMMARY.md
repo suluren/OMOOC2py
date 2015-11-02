@@ -6,6 +6,8 @@
   - [QAQ](0MOOC/Q.md)
 * [基础旋进]()
   - [2w笔记](1sTry/2wNote.md)
+  - [2w补充](1sTr/Tcl/Tk.md)
+  - [3w笔记](1sTr/net.md)
 * [迭代作品]()
 * [人生首秀]()
 * [代码 (_src)]()
