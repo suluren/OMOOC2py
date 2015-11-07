@@ -76,3 +76,9 @@ _book
 *.epub
 *.mobi
 *.pdf
+
+# fab
+fabfile.py
+
+# moudle
+bottle.py
