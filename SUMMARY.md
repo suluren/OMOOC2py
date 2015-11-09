@@ -8,6 +8,8 @@
   - [2w笔记](1sTry/2wNote.md)
   - [2w补充](1sTry/whypyenv.md)
   - [3w笔记](1sTry/net.md)
+  - [4w bottle](1sTry/bottle.md)
+  - [4w requests](1sTry/requests.md)
 * [迭代作品]()
 * [人生首秀]()
 * [代码 (_src)]()
